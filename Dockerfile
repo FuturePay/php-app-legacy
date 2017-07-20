@@ -13,6 +13,11 @@ RUN a2enmod rewrite && \
     a2enmod proxy_http && \
     a2enmod proxy_wstunnel
 
+# Install xdebug
+RUN pecl install xdebug && \
+    docker-php-ext-enable xdebug && \
+ 	mv /tmp/xdebug.ini /usr/local/etc/php/conf.d/
+
 # Install wkhtmltopodf
 RUN apt-get update && \
     apt-get install -y \
