@@ -6,7 +6,9 @@ COPY assets/* /tmp/
 RUN docker-php-ext-install pdo_mysql 
 
 # Enable mod_rewrite
-RUN a2enmod rewrite
+RUN a2enmod rewrite && \
+    a2enmod proxy_http && \
+    a2enmod proxy_wstunnel
 
 # Install xdebug
 RUN pecl install xdebug && \
