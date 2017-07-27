@@ -2,6 +2,9 @@ FROM php:5.6.31-apache
 
 COPY assets/* /tmp/
 
+# Install bcmath
+RUN docker-php-ext-install bcmath
+
 # Install pdo
 RUN docker-php-ext-install pdo_mysql 
 
