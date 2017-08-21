@@ -41,4 +41,10 @@ RUN curl -Lo /usr/local/bin/confd https://github.com/kelseyhightower/confd/relea
 # Cleanup
 RUN rm -r /tmp/*
 
+# Install some other random tools
+RUN apt-get update && \
+	apt-get install -y \
+		nslookup && \
+	rm -r /var/lib/apt/lists/*
+
 CMD confd -onetime -backend env && apache2-foreground
