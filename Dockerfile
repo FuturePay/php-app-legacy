@@ -2,11 +2,11 @@ FROM php:5.6.31-apache
 
 COPY assets/* /tmp/
 
-# Install bcmath
-RUN docker-php-ext-install bcmath
-
-# Install pdo
-RUN docker-php-ext-install pdo_mysql 
+# Install bcmath, pdo and pcntl
+RUN docker-php-ext-install \
+		bcmath \
+		pdo_mysql \
+		pcntl
 
 # Enable mod_rewrite
 RUN a2enmod rewrite && \
@@ -50,7 +50,6 @@ RUN rm -r /tmp/*
 RUN apt-get update && \
 	apt-get install -y \
 		dnsutils \
-		cron \
 		ssmtp && \
 	rm -r /var/lib/apt/lists/*
 
