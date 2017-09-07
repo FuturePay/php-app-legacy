@@ -38,9 +38,6 @@ RUN curl -Lo /usr/local/bin/confd https://github.com/kelseyhightower/confd/relea
     mkdir -p /etc/confd/templates && \
     mkdir -p /etc/confd/conf.d
 
-# Cleanup
-RUN rm -r /tmp/*
-
 # Install some other random tools
 RUN apt-get update && \
 	apt-get install -y \
@@ -48,4 +45,11 @@ RUN apt-get update && \
 		ssmtp && \
 	rm -r /var/lib/apt/lists/*
 
-CMD confd -onetime -backend env && apache2-foreground
+# Install the entrypoint
+RUN mv /tmp/entrypoint /usr/local/bin/
+
+# Cleanup
+RUN rm -r /tmp/*
+
+ENTRYPOINT ["/usr/local/bin/entrypoint"]
+CMD ["apache2-foreground"]
