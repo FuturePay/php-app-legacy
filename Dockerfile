@@ -47,6 +47,7 @@ RUN curl -Lo /usr/local/bin/confd https://github.com/kelseyhightower/confd/relea
 RUN apt-get update && \
 	apt-get install -y \
 		dnsutils \
+		cron \
 		ssmtp && \
 	rm -r /var/lib/apt/lists/*
 
