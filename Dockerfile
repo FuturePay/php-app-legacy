@@ -57,5 +57,5 @@ RUN mv /tmp/entrypoint /usr/local/bin/
 # Cleanup
 RUN rm -r /tmp/*
 
-ENTRYPOINT ["/usr/local/bin/entrypoint"]
+ENTRYPOINT ["entrypoint"]
 CMD ["apache2-foreground"]
