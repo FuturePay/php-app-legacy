@@ -48,6 +48,7 @@ RUN apt-get update && \
 	apt-get install -y \
 		dnsutils \
 		cron \
+		mysql-client \
 		ssmtp && \
 	rm -r /var/lib/apt/lists/*
 
