@@ -1,4 +1,4 @@
 #!/bin/sh
 set -e
-confd -onetime -backend env
+confd -onetime -backend env > /dev/null 2>&1
 exec "$@"

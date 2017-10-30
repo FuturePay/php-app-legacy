@@ -53,5 +53,6 @@ RUN mv /tmp/entrypoint /usr/local/bin/
 # Cleanup
 RUN rm -r /tmp/*
 
+WORKDIR /var/www
 ENTRYPOINT ["entrypoint"]
 CMD ["apache2-foreground"]
