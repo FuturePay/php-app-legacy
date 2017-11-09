@@ -18,6 +18,14 @@ RUN pecl install xdebug && \
     docker-php-ext-enable xdebug && \
  	mv /tmp/xdebug.ini /usr/local/etc/php/conf.d/
 
+# Install timecop
+RUN curl -fsSL https://github.com/hnw/php-timecop/archive/v1.2.8.tar.gz -o php-timecop.tar.gz && \
+    mkdir -p /tmp/php-timecop && \
+    tar -xf php-timecop.tar.gz -C /tmp/php-timecop --strip-components=1 && \
+    rm php-timecop.tar.gz && \
+    docker-php-ext-configure /tmp/php-timecop && \
+    docker-php-ext-install /tmp/php-timecop
+
 # Install wkhtmltopodf
 RUN apt-get update && \
     apt-get install -y \
