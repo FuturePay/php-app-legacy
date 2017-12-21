@@ -46,7 +46,7 @@ RUN apt-get update && \
     rm -r /var/lib/apt/lists/*
 
 # Install confd
-RUN curl -Lo /usr/local/bin/confd https://github.com/kelseyhightower/confd/releases/download/v0.11.0/confd-0.11.0-linux-amd64 && \
+RUN curl -Lo /usr/local/bin/confd https://github.com/kelseyhightower/confd/releases/download/v0.14.0/confd-0.14.0-linux-amd64 && \
     chmod +x /usr/local/bin/confd && \
     mkdir -p /etc/confd/templates && \
     mkdir -p /etc/confd/conf.d
