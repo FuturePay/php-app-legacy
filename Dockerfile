@@ -8,10 +8,11 @@ RUN docker-php-ext-install \
         pdo_mysql \
         pcntl
 
-# Enable mod_rewrite
+# Enable apache modules
 RUN a2enmod rewrite && \
     a2enmod proxy_http && \
-    a2enmod proxy_wstunnel
+    a2enmod proxy_wstunnel && \
+    a2enmod ssl
 
 # Install xdebug
 RUN pecl install xdebug && \
