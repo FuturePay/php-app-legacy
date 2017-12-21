@@ -16,7 +16,7 @@ RUN a2enmod rewrite && \
 # Install xdebug
 RUN pecl install xdebug && \
     docker-php-ext-enable xdebug && \
- 	mv /tmp/xdebug.ini /usr/local/etc/php/conf.d/
+    mv /tmp/xdebug.ini /usr/local/etc/php/conf.d/
 
 # Install timecop
 RUN curl -fsSL https://github.com/hnw/php-timecop/archive/v1.2.8.tar.gz -o php-timecop.tar.gz && \
