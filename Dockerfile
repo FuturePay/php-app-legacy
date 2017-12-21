@@ -1,12 +1,12 @@
-FROM php:5.6.31-apache
+FROM php:5.6.32-apache
 
 COPY assets/* /tmp/
 
 # Install bcmath, pdo and pcntl
 RUN docker-php-ext-install \
-		bcmath \
-		pdo_mysql \
-		pcntl
+        bcmath \
+        pdo_mysql \
+        pcntl
 
 # Enable mod_rewrite
 RUN a2enmod rewrite && \
@@ -40,10 +40,10 @@ RUN apt-get update && \
 
 # Install mcrypt
 RUN apt-get update && \
-	apt-get install -y \
-		libmcrypt-dev && \
-	docker-php-ext-install mcrypt && \
-	rm -r /var/lib/apt/lists/*
+    apt-get install -y \
+        libmcrypt-dev && \
+    docker-php-ext-install mcrypt && \
+    rm -r /var/lib/apt/lists/*
 
 # Install confd
 RUN curl -Lo /usr/local/bin/confd https://github.com/kelseyhightower/confd/releases/download/v0.11.0/confd-0.11.0-linux-amd64 && \
@@ -53,12 +53,12 @@ RUN curl -Lo /usr/local/bin/confd https://github.com/kelseyhightower/confd/relea
 
 # Install some other random tools
 RUN apt-get update && \
-	apt-get install -y \
-		dnsutils \
-		cron \
-		mysql-client \
-		ssmtp && \
-	rm -r /var/lib/apt/lists/*
+    apt-get install -y \
+        dnsutils \
+        cron \
+        mysql-client \
+        ssmtp && \
+    rm -r /var/lib/apt/lists/*
 
 # Install the entrypoint
 RUN mv /tmp/entrypoint /usr/local/bin/
