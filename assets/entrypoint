@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -e
-if [ "$APPLICATION_ENV" == 'local' ] || [ "$APPLICATION_ENV" == 'ci' ]; then
+if [ "$APPLICATION_ENV" == 'local' ] || [ "$APPLICATION_ENV" == 'ci' ] ; then
 	confd -onetime -backend env > /dev/null 2>&1
 else
 	confd -onetime -backend ssm -prefix "/$APPLICATION_ENV" > /dev/null 2>&1
