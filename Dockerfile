@@ -38,6 +38,10 @@ RUN curl -Lo /usr/local/bin/confd https://github.com/kelseyhightower/confd/relea
     mkdir -p /etc/confd/templates && \
     mkdir -p /etc/confd/conf.d
 
+# Install aws-env
+RUN curl -Lo /usr/local/bin/aws-env https://github.com/Droplr/aws-env/raw/872ca7e45a8fdc519ff40745c56175ae81d3b66b/bin/aws-env-linux-amd64 && \
+    chmod +x /usr/local/bin/aws-env
+
 # Install some other random tools
 RUN apt-get update && \
     apt-get install -y \
