@@ -14,7 +14,7 @@ RUN a2enmod rewrite && \
     a2enmod proxy_wstunnel
 
 # Install xdebug
-RUN pecl install xdebug && \
+RUN pecl install xdebug-2.5.5 && \
     docker-php-ext-enable xdebug && \
     mv /tmp/xdebug.ini /usr/local/etc/php/conf.d/
 
