@@ -1,4 +1,4 @@
-FROM php:5.6.32-apache
+FROM php:5.6.33-apache
 
 COPY assets/* /tmp/
 
