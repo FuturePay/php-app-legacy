@@ -32,6 +32,13 @@ RUN apt-get update && \
     docker-php-ext-install mcrypt && \
     rm -r /var/lib/apt/lists/*
 
+# Install soap
+RUN apt-get update && \
+    apt-get install -y \
+        libxml2-dev && \
+    docker-php-ext-install soap && \
+    rm -r /var/lib/apt/lists/*
+
 # Install confd
 RUN curl -Lo /usr/local/bin/confd https://github.com/kelseyhightower/confd/releases/download/v0.14.0/confd-0.14.0-linux-amd64 && \
     chmod +x /usr/local/bin/confd && \

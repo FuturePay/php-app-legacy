@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 set -e
 if [ "$APPLICATION_ENV" == 'local' ] || [ "$APPLICATION_ENV" == 'ci' ] ; then
-	confd -onetime -backend env
+    confd -onetime -backend env
 else
-	confd -onetime -backend ssm -prefix "/$APPLICATION_ENV/$APP_NAME"
-	eval $(AWS_ENV_PATH="/$APPLICATION_ENV/$APP_NAME/environment" aws-env)
+    confd -onetime -backend ssm -prefix "/$APPLICATION_ENV/$APP_NAME"
+    eval $(AWS_ENV_PATH="/$APPLICATION_ENV/$APP_NAME/environment" aws-env)
 fi
 exec "$@"
