@@ -26,6 +26,12 @@ RUN curl -fsSL https://github.com/hnw/php-timecop/archive/v1.2.8.tar.gz -o php-t
     docker-php-ext-configure /tmp/php-timecop && \
     docker-php-ext-install /tmp/php-timecop
 
+# Install zip
+RUN apt-get update && \
+    apt-get install -y \
+        zlib1g-dev \
+        && docker-php-ext-install zip
+
 # Install wkhtmltopodf
 RUN apt-get update && \
     apt-get install -y \
